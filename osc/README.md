@@ -91,6 +91,14 @@ osc.play;
 ```
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/impulse_01.mp4" muted="false"></video></div>
 
+### プラック( Pluck )
+```superCollider
+var osc = {
+	Pluck.ar(in: WhiteNoise.ar(0.1), trig:Impulse.kr(2), maxdelaytime:440.reciprocal, delaytime:440.reciprocal, decaytime:10, coef:0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pluck_01.mp4" muted="false"></video></div>
 
 
 ### ノイズ(Noise)
