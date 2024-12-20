@@ -26,7 +26,7 @@ var osc = {
 };
 osc.play;
 ```
-![mp4](https://amami-harhid.github.io/superColliderMovies/osc/sinOsc01.mp4)
+![mp4](./sinOsc01.mp4)
 
 ### ノコギリ波（Sawtooth Wave）
 のこぎりの歯のような波形であり、すべての整数倍音を豊富に含みます。明るく力強い音になります。
@@ -38,7 +38,7 @@ var osc = {
 };
 osc.play;
 ```
-![mp4](https://amami-harhid.github.io/superColliderMovies/osc/saw01.mp4)
+![mp4](./saw01.mp4)
 
 
 ### パルス波（Pulse Wave）
@@ -52,7 +52,7 @@ var osc = {
 };
 osc.play;
 ```
-![mp4](https://amami-harhid.github.io/superColliderMovies/osc/saw01.mp4)
+![mp4](./saw01.mp4)
 
 ### 矩形波（Square Wave）
 矩形波はパルス波の一種であり、パルス幅が５０％（左右対称のもの）のものが矩形波で、奇数倍音しか含みません。奇数倍音のみを豊富に含みます。機械的なピコピコ音です。
@@ -65,7 +65,7 @@ var osc = {
 };
 osc.play;
 ```
-![mp4](https://amami-harhid.github.io/superColliderMovies/osc/square01.mp4)
+![mp4](./square01.mp4)
 
 ### 三角波（Triangle Wave）
 周波数特性は矩形波と同じく奇数倍音のみを含む波形です。
@@ -79,7 +79,7 @@ var osc = {
 };
 osc.play;
 ```
-![mp4](https://amami-harhid.github.io/superColliderMovies/osc/triangle01.mp4)
+![mp4](./triangle01.mp4)
 
 
 ### ノイズ(Noise)
