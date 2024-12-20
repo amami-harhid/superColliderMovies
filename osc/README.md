@@ -60,7 +60,7 @@ osc.play;
 ```superCollider
 var osc = {
 	var f = 440;
-    var w = 0.5;
+	var w = 0.5;
 	Pulse.ar(freq: f, width: w, mul: 1.0, add: 0.0);	
 };
 osc.play;
