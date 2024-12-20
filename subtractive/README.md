@@ -23,7 +23,7 @@
 ```
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/subtractive/LPF_02.mp4" muted="false"></video></div>
 
-### Saw
+### LFNoise
 ```superCollider
 {
    [LFNoise0.ar(4, 800, 840), LFNoise0.ar(8, 800, 840)];
