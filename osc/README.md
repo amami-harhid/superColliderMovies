@@ -74,7 +74,7 @@ osc.play;
 ```superCollider
 var osc = {
 	var f = 440;
-    var w = 1;
+	var w = 1;
 	LFTri.ar(freq: f, iphase: 0.0, mul: 1.0, add: 0.0)	
 };
 osc.play;
