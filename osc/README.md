@@ -81,13 +81,23 @@ osc.play;
 ```
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/triangle_01.mp4" muted="false"></video></div>
 
+### インパルス( Impulse )
+```superCollider
+var osc = {
+	var f = 440;
+	Impulse.ar(freq: f, phase: 0.0, mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/impulse_01.mp4" muted="false"></video></div>
+
+
 
 ### ノイズ(Noise)
 ノイズは、音響学的には「周波数」「振幅」「位相」が完全にランダムな波形のことを指します。
 スネアドラム等の打楽器や、効果音の生成には欠かすことのできない存在です。
 
 #### ホワイトノイズ( WhiteNoise )
-
 ```superCollider
 var osc = {
 	WhiteNoise.ar(mul: 1.0, add: 0.0);
@@ -95,6 +105,33 @@ var osc = {
 osc.play;
 ```
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/whiteNoise_01.mp4" muted="false"></video></div>
+
+#### デマンドホワイト( Dwhite )
+```superCollider
+var osc = {
+	var a = Dwhite(lo:0, hi:15, length:inf);
+	var f = 440;
+	var trig = Impulse.kr( f / 10 );
+	var f2 = Demand.kr(trig, 0, a) * 30 + 340;
+	SinOsc.ar(f2) * 0.1
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/Dwhite_01.mp4" muted="false"></video></div>
+
+#### デマンドブラウン( Dbrown )
+```superCollider
+var osc = {
+	var a = Dbrown(lo:0, hi:15, step:0.01, length:inf);
+	var f = 440;
+	var trig = Impulse.kr( f / 10 );
+	var f2 = Demand.kr(trig, 0, a) * 30 + 340;
+	SinOsc.ar(f2) * 0.1
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/Dbrown_01.mp4" muted="false"></video></div>
+
 
 #### ブラウンノイズ( BrownNoise )
 
