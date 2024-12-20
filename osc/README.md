@@ -26,7 +26,7 @@ var osc = {
 };
 osc.play;
 ```
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/sinOsc01.mp4" muted="false"></video></div>
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/sinOsc_01.mp4" muted="false"></video></div>
 
 ### ノコギリ波（Sawtooth Wave）
 のこぎりの歯のような波形であり、すべての整数倍音を豊富に含みます。明るく力強い音になります。
@@ -38,7 +38,7 @@ var osc = {
 };
 osc.play;
 ```
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/saw01.mp4" muted="false"></video></div>
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/saw_01.mp4" muted="false"></video></div>
 
 
 ### パルス波（Pulse Wave）
@@ -52,7 +52,7 @@ var osc = {
 };
 osc.play;
 ```
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pulse01.mp4" muted="false"></video></div>
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pulse_01.mp4" muted="false"></video></div>
 
 ### 矩形波（Square Wave）
 矩形波はパルス波の一種であり、パルス幅が５０％（左右対称のもの）のものが矩形波で、奇数倍音しか含みません。奇数倍音のみを豊富に含みます。機械的なピコピコ音です。
@@ -65,7 +65,7 @@ var osc = {
 };
 osc.play;
 ```
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/square01.mp4" muted="false"></video></div>
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/square_01.mp4" muted="false"></video></div>
 
 ### 三角波（Triangle Wave）
 周波数特性は矩形波と同じく奇数倍音のみを含む波形です。
@@ -79,11 +79,120 @@ var osc = {
 };
 osc.play;
 ```
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/triangle01.mp4" muted="false"></video></div>
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/triangle_01.mp4" muted="false"></video></div>
 
 
 ### ノイズ(Noise)
 ノイズは、音響学的には「周波数」「振幅」「位相」が完全にランダムな波形のことを指します。
 スネアドラム等の打楽器や、効果音の生成には欠かすことのできない存在です。
 
-#### 
+#### ホワイトノイズ( WhiteNoise )
+
+```superCollider
+var osc = {
+	WhiteNoise.ar(mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/whiteNoise_01.mp4" muted="false"></video></div>
+
+#### ブラウンノイズ( BrownNoise )
+
+```superCollider
+var osc = {
+	BrownNoise.ar(mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/brownNoise_01.mp4" muted="false"></video></div>
+
+
+#### ピンクノイズ( PinkNoise )
+```superCollider
+var osc = {
+	PinkNoise.ar(mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pinkNoise_01.mp4" muted="false"></video></div>
+
+
+#### LFノイズ0 ( LFNoise0 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFNoise0.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise0_01.mp4" muted="false"></video></div>
+
+#### LFノイズ1 ( LFNoise1 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFNoise1.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise1_01.mp4" muted="false"></video></div>
+
+#### LFノイズ2 ( LFNoise2 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFNoise2.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise2_01.mp4" muted="false"></video></div>
+
+
+#### LDFノイズ0 ( LFDNoise0 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFDNoise0.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise0_01.mp4" muted="false"></video></div>
+
+#### LFDノイズ1 ( LFDNoise1 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFDNoise1.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise1_01.mp4" muted="false"></video></div>
+
+#### LFDノイズ3 ( LFDNoise3 )
+```superCollider
+var osc = {
+	var f = 440.0;
+	LFDNoise3.ar(freq: f, mul: 1.0, add: 0.0)
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise3_01.mp4" muted="false"></video></div>
+
+#### クリップノイズ ( ClipNoise )
+```superCollider
+var osc = {
+	ClipNoise.ar(mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/clipNoise_01.mp4" muted="false"></video></div>
+
+#### パリパリノイズ ( CrackleNoise )
+```superCollider
+var osc = {
+	var cp = 1.5;
+	Crackle.ar(chaosParam: cp, mul: 1.0, add: 0.0);
+};
+osc.play;
+```
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/cracleNoise_01.mp4" muted="false"></video></div>
