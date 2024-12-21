@@ -163,7 +163,7 @@ env.test.plot;
 ![alt text](./env_pairs_plot_exp.png)
 
 
-# コードサンプル
+# コードサンプル【１】
 
 Env.linenを使って音の大きさを変化させているサンプルです。
 
@@ -176,7 +176,7 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
-## コードサンプル(2)
+###  録画（録音）のための操作
 上のサンプルは一瞬で音が終わってしまい録画（録音）操作がむずかしいため、50回繰り返えしたサンプルです。
 
 （50回繰り返す間に録画録音をしています）
@@ -196,3 +196,23 @@ var sound = {
 
 ```
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnv.mp4" muted="false"></video></div>
+
+
+# コードサンプル【２】
+
+Env.percを使って音の大きさを変化させているサンプルです。
+
+attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音が聞こえます。
+
+```superCollider
+{
+	var env = Env.perc(attackTime: 0.01, releaseTime: 2.0);
+	var f = 440;
+	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
+}.play;
+```
+## Plot
+![alt text](image.png)
+
+## 録画再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnvPerc.mp4" muted="false"></video></div>
