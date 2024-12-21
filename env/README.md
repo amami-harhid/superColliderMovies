@@ -94,22 +94,55 @@ env.test.plot;
 打楽器風のカーブ形状を生成します。
 
 ```superCollider
-var env = Env.perc(attackTime: 0.01, releaseTime: 1.0, level: 1.0, curve: -4.0);
+var env = Env.perc(attackTime: 0.01, releaseTime: 1.0, level: 1.0, curve: -4);
 env.test.plot;
 ```
 ![alt text](./env_perc_plot.png)
 
+### sharper attack
+
+```superCollider
+var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: -4);
+env.test.plot;
+```
+![alt text](./env_perc_plot_sharperAttack.png)
+
+### change curvature
+
+```superCollider
+var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: -8);
+env.test.plot;
+```
+![alt text](./env_perc_plot_sharperAttackCurveChange.png)
+
+### reverse envelope
+
+```superCollider
+var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: 4);
+env.test.plot;
+```
+![alt text](./env_perc_plot_sharperAttackReverseCurve.png)
+
 ## Env.pairs
 
 ```superCollider
-var sound = {
-	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:'lin');
-    var f = 440;
-	EnvGen.ar(env, doneAction:2);
-}.play;
+var pairs = [[0,1],[2.1,0.5],[3,1.4]]; 
+var env = Env.pairs(pairs:pairs, curve:\lin);
+env.test.plot;
 ```
+![alt text](./env_pairs_plot.png)
 
-## コードサンプル
+### Env.pairs(curve: \exp)
+
+```superCollider
+var pairs = [[0,1],[2.1,0.5],[3,1.4]]; 
+var env = Env.pairs(pairs:pairs, curve:\exp);
+env.test.plot;
+```
+![alt text](./env_pairs_plot_exp.png)
+
+
+# コードサンプル
 
 ```superCollider
 {
