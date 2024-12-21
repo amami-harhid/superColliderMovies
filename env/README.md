@@ -152,8 +152,8 @@ env.test.plot;
 
 ```superCollider
 {
-	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:\lin);
-    var f = 440;
+    var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:\lin);
+	var f = 440;
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
@@ -162,7 +162,7 @@ env.test.plot;
 ```superCollider
 var sound = {
 	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:'lin');
-    var f = 440;
+	var f = 440;
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 };
 {
