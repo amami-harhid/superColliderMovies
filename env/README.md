@@ -150,6 +150,9 @@ env.test.plot;
 
 # コードサンプル
 
+Env.linenを使って音の大きさを変化させているサンプルです。
+attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音が聞こえます。
+
 ```superCollider
 {
 	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:\lin);
