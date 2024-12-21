@@ -43,7 +43,7 @@ env.test.plot;
 
 ### Env.linen(curve: \welch)
 
-サインカーブであるが最後がウェルチ窓風に減衰する
+サインカーブであるが最後がウェルチ風に減衰する
 
 ```superCollider
 var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve: \welch);
