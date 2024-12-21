@@ -22,7 +22,7 @@ https://kensukeinage.com/synth_osc/
 ```superCollider
 var osc = {
 	var f = 440;
-	SinOsc.ar(feq:f, phase:0, mul:1, add:0);	
+	SinOsc.ar(freq:f, phase:0, mul:1, add:0);	
 };
 osc.play;
 ```
@@ -34,7 +34,7 @@ osc.play;
 ```superCollider
 var osc = {
 	var f = 440;
-	Saw.ar(feq:f, mul:1, add:0);	
+	Saw.ar(freq:f, mul:1, add:0);	
 };
 osc.play;
 ```
@@ -74,7 +74,6 @@ osc.play;
 ```superCollider
 var osc = {
 	var f = 440;
-	var w = 1;
 	LFTri.ar(freq: f, iphase: 0.0, mul: 1.0, add: 0.0)	
 };
 osc.play;
