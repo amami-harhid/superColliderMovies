@@ -131,6 +131,8 @@ env.test.plot;
 
 ## Env.pairs
 
+位置の配列を与えて位置を結ぶように形状を作ります。
+
 ```superCollider
 var pairs = [[0,1],[2.1,0.5],[3,1.4]]; 
 var env = Env.pairs(pairs:pairs, curve:\lin);
@@ -138,7 +140,20 @@ env.test.plot;
 ```
 ![alt text](./env_pairs_plot.png)
 
+### Env.pairs(curve: \sine)
+
+サインカーブを描きます。
+
+```superCollider
+var pairs = [[0,1],[2.1,0.5],[3,1.4]]; 
+var env = Env.pairs(pairs:pairs, curve:\sine);
+env.test.plot;
+```
+![alt text](./env_pairs_plot_sine.png)
+
 ### Env.pairs(curve: \exp)
+
+指数関数風にカーブします。
 
 ```superCollider
 var pairs = [[0,1],[2.1,0.5],[3,1.4]]; 
