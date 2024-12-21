@@ -14,7 +14,7 @@ env.test.plot;
 
 ### Env.linen(curve: \step)
 
-最終値へすぐに移動する
+すぐに最後の値へ移動する（最初の値は無視される）
 ```superCollider
 var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve: \step);
 env.test.plot;
@@ -23,7 +23,7 @@ env.test.plot;
 
 ### Env.linen(curve: \hold)
 
-最初の値を維持して最終値へ移動する
+最初の値を維持し続ける。（減衰は無視される）
 
 ```superCollider
 var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve: \hold);
@@ -166,6 +166,7 @@ env.test.plot;
 # コードサンプル
 
 Env.linenを使って音の大きさを変化させているサンプルです。
+
 attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音が聞こえます。
 
 ```superCollider
@@ -177,6 +178,7 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 ```
 ## コードサンプル(2)
 上のサンプルは一瞬で音が終わってしまい録画（録音）操作がむずかしいため、50回繰り返えしたサンプルです。
+
 （50回繰り返す間に録画録音をしています）
 
 ```superCollider
