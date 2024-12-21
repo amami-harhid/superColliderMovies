@@ -167,6 +167,4 @@ var sound = {
 }.fork();
 
 ```
-
-<div><video controls src="https://amami-harhid.github.io/superColliderMovies/subtractive/env_01.mp4" muted="false"></video></div>
-
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnv.mp4" muted="false"></video></div>
