@@ -53,3 +53,15 @@
 
 - rrand(a, b) : a と b の間のランダムな値 
 - SimpleNumber.reciprocal : 逆数です。 12.reciprocal ==> 1/12
+
+
+# pulseCount
+
+```superCollider
+{ 
+   var impulse1 = Impulse.ar(10);
+   var impulse2 = Impulse.ar(9);
+   var pulseCount = PulseCount.ar(trig: impulse1, reset: impulse2 );
+   SinOsc.ar( pulseCount*900, 0, 0.5);
+}.scope;
+```
