@@ -94,12 +94,14 @@ env.test.plot;
 打楽器風のカーブ形状を生成します。
 
 ```superCollider
-var env = Env.perc(attackTime: 0.01, releaseTime: 1.0, level: 1.0, curve: -4);
+var env = Env.perc(attackTime: 0.1, releaseTime: 1.0, level: 1.0, curve: -4);
 env.test.plot;
 ```
 ![alt text](./env_perc_plot.png)
 
-### sharper attack
+### Env.perc (sharper attack)
+
+アタックを強く
 
 ```superCollider
 var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: -4);
@@ -109,6 +111,8 @@ env.test.plot;
 
 ### change curvature
 
+減衰を急激に
+
 ```superCollider
 var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: -8);
 env.test.plot;
@@ -116,6 +120,8 @@ env.test.plot;
 ![alt text](./env_perc_plot_sharperAttackCurveChange.png)
 
 ### reverse envelope
+
+減衰のカーブの向きを変える
 
 ```superCollider
 var env = Env.perc(attackTime: 0.001, releaseTime: 1.0, level: 1.0, curve: 4);
