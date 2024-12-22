@@ -1,13 +1,6 @@
 # 加算合成 (Additive synthesis)
 
-## Mix
-
-音を混ぜます。
-
-音Aと音Bを混ぜるとき、音量が Aの音量 + Bの音量となりますので、合成後の音量が大きくなりすぎないように注意しましょう。
-
-
-## Mixの例その１
+## 加算 ( + )
 
 ```superCollider
 {
@@ -24,7 +17,7 @@
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_01.mp4" muted="false"></video></div>
 
 
-## Mixの例その２
+## 配列でMixする
 ```superCollider
 {
    var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
@@ -38,6 +31,50 @@
 #### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_02.mp4" muted="false"></video></div>
 
+## ３音を加算
+
+440Hz, 220Hz, 880Hz を合成しています。
+スペクトルアナライズをみると 周波数の山が３つできていることがわかります。
+加算合成は 基本周波数の倍音を加えていくことが多いです。
+加算合成をするときは、加算結果の合計mul が 1を超えないようにすると耳に優しいです。
+
+```superCollider
+{
+   var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
+   var b = SinOsc.ar(freq:220, phase:0.0, mul:0.25, add:0.0);
+   var c = SinOsc.ar(freq:880, phase:0.0, mul:0.25, add:0.0);
+   Mix([a,b,c]);
+}.play;
+```
+
+#### Plot
+![alt text](Mix3Sounds_01_plot.png)
+
+#### 再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix3Sounds_01.mp4" muted="false"></video></div>
+
+## 倍音以外を加算
+```superCollider
+{
+   var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
+   var b = SinOsc.ar(freq:445, phase:0.0, mul:0.5, add:0.0);
+   a + b;
+}.play;
+```
+
+#### Plot
+0.4秒間でプロットしたものです。ビョビョと周波数が変わる様子が見えると思います。
+```superCollider
+{
+   var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
+   var b = SinOsc.ar(freq:445, phase:0.0, mul:0.5, add:0.0);
+   a + b;
+}.plot(0.4);
+```
+![alt text](./Mix_NotHarmonic_01_plot.png)
+
+#### 再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_NotHarmonic_01.mp4" muted="false"></video></div>
 
 ### ランダムに生成した音を重ねる（ rrand ）
 
