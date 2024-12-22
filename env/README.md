@@ -176,6 +176,9 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
+### Plot
+![alt text](./CodeSampleSinOscAndEnv_Plot.png)
+
 ###  録画（録音）のための操作
 上のサンプルは一瞬で音が終わってしまい録画（録音）操作がむずかしいため、50回繰り返えしたサンプルです。
 
@@ -195,10 +198,8 @@ var sound = {
 }.fork();
 
 ```
-## Plot
-![alt text](./CodeSampleSinOscAndEnv_Plot.png)
 
-## 録画再生
+### 録画再生
 
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnv.mp4" muted="false"></video></div>
 
@@ -216,8 +217,11 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
-## Plot
+### Plot
 ![alt text](./CodeSampleSinOscAndEnvPerc_Plot.png)
 
-## 録画再生
+### 録画再生
+
+50回繰り返しをしている間に録画したものです。
+
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnvPerc.mp4" muted="false"></video></div>
