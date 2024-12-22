@@ -211,7 +211,7 @@ var sound = {
 
 Env.percを使って音の大きさを変化させているサンプルです。
 
-attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音が聞こえます。
+attackTime(0.05) + releaseTime(2.0) = 約 2.05 秒だけ音が聞こえます。
 
 ```superCollider
 {
