@@ -195,6 +195,11 @@ var sound = {
 }.fork();
 
 ```
+## Plot
+![alt text](./CodeSampleSinOscAndEnv_Plot.png)
+
+## 録画再生
+
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnv.mp4" muted="false"></video></div>
 
 
