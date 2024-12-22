@@ -172,11 +172,14 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 ```superCollider
 {
 	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:\lin);
-	var f = 440;
+	var f = 880;
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
-### Plot
+### SinOsc.ar()のPlot
+![alt text](./CodeSampleSinOscAndEnv_Plot_SinOsc.png)
+
+### SinOsc.ar()×EnvGen.kr() の Plot
 ![alt text](./CodeSampleSinOscAndEnv_Plot.png)
 
 ###  録画（録音）のための操作
@@ -217,7 +220,10 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 }.play;
 ```
-### Plot
+### SinOsc.ar() のPlot
+![alt text](CodeSampleSinOscAndEnvPerc_Plot_SinOsc.png)
+
+### SinOsc.ar()×EnvGen.kr()のPlot
 ![alt text](./CodeSampleSinOscAndEnvPerc_Plot.png)
 
 ### 録画再生
