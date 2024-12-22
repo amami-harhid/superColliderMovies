@@ -1,6 +1,3 @@
-
-https://kensukeinage.com/synth_osc/
-
 # オシレーター(Oscillator:発振器)
 
 ## パラメーターの種類
