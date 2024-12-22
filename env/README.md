@@ -212,7 +212,7 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 }.play;
 ```
 ## Plot
-![alt text](image.png)
+![alt text](./CodeSampleSinOscAndEnvPerc_Plot.png)
 
 ## 録画再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/env/CodeSampleSinOscAndEnvPerc.mp4" muted="false"></video></div>
