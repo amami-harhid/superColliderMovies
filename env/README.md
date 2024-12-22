@@ -190,7 +190,7 @@ attackTime(0.05) + sustainTime(0.2) + releaseTime(0.5) = 約 0.75 秒だけ音�
 ```superCollider
 var sound = {
 	var env = Env.linen(attackTime:0.05, sustainTime:0.2, releaseTime:0.5, level:0.7, curve:'lin');
-	var f = 440;
+	var f = 880;
 	SinOsc.ar(freq:f) * EnvGen.kr(env, doneAction:2);
 };
 {
