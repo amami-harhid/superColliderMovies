@@ -187,6 +187,7 @@ osc.play;
 
 
 #### ブラウンノイズ( BrownNoise )
+色（茶色）に起因した名称ではなく、ブラウン運動パターンに類似したものであるため、ブラウンノイズと呼ばれています。ホワイトノイズやピンクノイズと比べて、減衰した、あるいは柔らかい音質に聞こえます。
 
 ```superCollider
 var osc = {
@@ -203,6 +204,8 @@ osc.play;
 
 
 #### ピンクノイズ( PinkNoise )
+パワーが周波数に反比例する雑音のことで、同じ周波数成分を持つ光がピンク色に見えることからピンクノイズと呼ばれています。
+
 ```superCollider
 var osc = {
 	PinkNoise.ar(mul: 1.0, add: 0.0);
@@ -302,6 +305,9 @@ osc.play;
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise3_01.mp4" muted="false"></video></div>
 
 #### クリップノイズ ( ClipNoise )
+クリッピングとは、音声信号が過度に大きな振幅を持ち、正確な波形が失われる現象を指します。
+クリップノイズとは、オーディオ録音や再生中に、信号がクリッピング（オーバーロード）された際に発生するノイズ、またはそれに似たノイズを指します。
+
 ```superCollider
 var osc = {
 	ClipNoise.ar(mul: 1.0, add: 0.0);
@@ -315,6 +321,8 @@ osc.play;
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/clipNoise_01.mp4" muted="false"></video></div>
 
 #### パリパリノイズ ( CrackleNoise )
+不規則な「パチパチ」という音のノイズです。古いレコードや不良なケーブル接続による接触不良などで起こるノイズ音に似ています。
+
 ```superCollider
 var osc = {
 	var cp = 1.5;
