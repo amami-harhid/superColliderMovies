@@ -48,6 +48,17 @@ RLPF.ar( in, freq, rq, mul, add );
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/subtractive/LPF_01.mp4" muted="false"></video></div>
 
 
+### Others
+```superCollider
+{ 
+    var in = Saw.ar(440, 0.9);
+    var freq = Line.ar(200, 1500, 2);
+    var rq = Line.ar(0.001, 0.05, 20);
+    var mul = Line.ar(0.5, 0, 2);
+    RLPF.ar(in:in, freq:freq, rq:rq, mul:mul );
+}.play;
+```
+
 ## RHPF : ハイパスフィルタ
 ## BPF  : バンドバスフィルタ
 
