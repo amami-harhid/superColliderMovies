@@ -23,6 +23,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./sinOsc_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/sinOsc_01.mp4" muted="false"></video></div>
 
 ### ノコギリ波（Sawtooth Wave）
@@ -35,6 +39,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./saw_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/saw_01.mp4" muted="false"></video></div>
 
 
@@ -49,6 +57,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./pulse_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pulse_01.mp4" muted="false"></video></div>
 
 ### 矩形波（Square Wave）
@@ -62,6 +74,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./square_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/square_01.mp4" muted="false"></video></div>
 
 ### 三角波（Triangle Wave）
@@ -75,6 +91,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./triangle_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/triangle_01.mp4" muted="false"></video></div>
 
 ### インパルス( Impulse )
@@ -85,6 +105,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./impulse_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/impulse_01.mp4" muted="false"></video></div>
 
 ### プラック( Pluck )
@@ -94,6 +118,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./pluck_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pluck_01.mp4" muted="false"></video></div>
 
 
@@ -108,32 +136,44 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./whiteNoise_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/whiteNoise_01.mp4" muted="false"></video></div>
 
 #### デマンドホワイト( Dwhite )
 ```superCollider
 var osc = {
-	var a = Dwhite(lo:0, hi:15, length:inf);
+	var a = Dwhite(lo:0, hi:25, length:inf);
 	var f = 440;
 	var trig = Impulse.kr( f / 10 );
 	var f2 = Demand.kr(trig, 0, a) * 30 + 340;
-	SinOsc.ar(f2) * 0.1
+	Saw.ar(f2) * 0.1
 };
 osc.play;
 ```
+#### Plot
+![alt text](./Dwhite_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/Dwhite_01.mp4" muted="false"></video></div>
 
 #### デマンドブラウン( Dbrown )
 ```superCollider
 var osc = {
-	var a = Dbrown(lo:0, hi:15, step:0.01, length:inf);
+	var a = Dbrown(lo:0, hi:25, step:0.01, length:inf);
 	var f = 440;
 	var trig = Impulse.kr( f / 10 );
 	var f2 = Demand.kr(trig, 0, a) * 30 + 340;
-	SinOsc.ar(f2) * 0.1
+	Saw.ar(f2) * 0.1
 };
 osc.play;
 ```
+#### Plot
+![alt text](./Dbrown_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/Dbrown_01.mp4" muted="false"></video></div>
 
 
@@ -145,6 +185,11 @@ var osc = {
 };
 osc.play;
 ```
+
+#### Plot
+![alt text](./brownNoise_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/brownNoise_01.mp4" muted="false"></video></div>
 
 
@@ -155,6 +200,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./pinkNoise_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/pinkNoise_01.mp4" muted="false"></video></div>
 
 
@@ -166,6 +215,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFNoise0_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise0_01.mp4" muted="false"></video></div>
 
 #### LFノイズ1 ( LFNoise1 )
@@ -176,6 +229,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFNoise1_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise1_01.mp4" muted="false"></video></div>
 
 #### LFノイズ2 ( LFNoise2 )
@@ -186,6 +243,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFNoise2_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFNoise2_01.mp4" muted="false"></video></div>
 
 
@@ -197,6 +258,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFDNoise0_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise0_01.mp4" muted="false"></video></div>
 
 #### LFDノイズ1 ( LFDNoise1 )
@@ -207,6 +272,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFDNoise1_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise1_01.mp4" muted="false"></video></div>
 
 #### LFDノイズ3 ( LFDNoise3 )
@@ -217,6 +286,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./LFDNoise3_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/LFDNoise3_01.mp4" muted="false"></video></div>
 
 #### クリップノイズ ( ClipNoise )
@@ -226,6 +299,10 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./clipNoise_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/clipNoise_01.mp4" muted="false"></video></div>
 
 #### パリパリノイズ ( CrackleNoise )
@@ -236,4 +313,8 @@ var osc = {
 };
 osc.play;
 ```
+#### Plot
+![alt text](./cracleNoise_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/osc/cracleNoise_01.mp4" muted="false"></video></div>
