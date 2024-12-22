@@ -114,10 +114,19 @@ osc.play;
 ### プラック( Pluck )
 ```superCollider
 var osc = {
-	Pluck.ar(in: WhiteNoise.ar(0.1), trig:Impulse.kr(2), maxdelaytime:440.reciprocal, delaytime:440.reciprocal, decaytime:10, coef:0.0);
+	Pluck.ar(
+		in: WhiteNoise.ar(0.1), 
+		trig:Impulse.kr(2), 
+		maxdelaytime:440.reciprocal, 
+		delaytime:440.reciprocal, 
+		decaytime:10, 
+		coef:0.0
+	);
 };
 osc.play;
 ```
+※ Number.reciprocal --> 逆数です。 440.reciprocal --> 1/440 です。
+
 #### Plot
 ![alt text](./pluck_01_plot.png)
 
