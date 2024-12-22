@@ -53,7 +53,7 @@
 #### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix3Sounds_01.mp4" muted="false"></video></div>
 
-## 倍音以外を加算
+## 倍音以外を加算(少しだけ周波数ずらす)
 ```superCollider
 {
    var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
@@ -76,6 +76,19 @@
 #### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_NotHarmonic_01.mp4" muted="false"></video></div>
 
+## 倍音以外を加算(ノイズを加算)
+```superCollider
+{
+   var a = SinOsc.ar(freq:440, phase:0.0, mul:0.5, add:0.0);
+   var b = SinOsc.ar(freq:445, phase:0.0, mul:0.5, add:0.0);
+   a + b;
+}.play;
+```
+#### Plot
+![alt text](./Mix_SinOscWhiteNoise_01_plot.png)
+#### 再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_SinOscWhiteNoise_01.mp4" muted="false"></video></div>
+
 ### ランダムに生成した音を重ねる（ rrand ）
 
 ランダムに生成した音を重ねるときは  Mix.fill(n, function)を使う。
@@ -96,8 +109,6 @@
    });
 }.play;
 ```
-
-![alt text](image.png)
 
 #### Plot
 ![alt text](./CodeSample_01_plot.png)
