@@ -17,6 +17,13 @@
 }.play;
 ```
 
+#### Plot
+![alt text](./Mix_01_plot.png)
+
+#### 再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_01.mp4" muted="false"></video></div>
+
+
 ## Mixの例その２
 ```superCollider
 {
@@ -25,6 +32,11 @@
    Mix([a,b]);
 }.play;
 ```
+#### Plot
+![alt text](./Mix_02_plot.png)
+
+#### 再生
+<div><video controls src="https://amami-harhid.github.io/superColliderMovies/addotove/Mix_02.mp4" muted="false"></video></div>
 
 
 ### ランダムに生成した音を重ねる（ rrand ）
@@ -47,6 +59,13 @@
    });
 }.play;
 ```
+
+![alt text](image.png)
+
+#### Plot
+![alt text](./CodeSample_01_plot.png)
+
+#### 再生
 <div><video controls src="https://amami-harhid.github.io/superColliderMovies/additive/CodeSample_01.mp4" muted="false"></video></div>
 
 ## 補足解説
