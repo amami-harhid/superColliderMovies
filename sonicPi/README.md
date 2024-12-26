@@ -1,117 +1,24 @@
-# sonicPi
+# sonicPiをMIDIで制御する
 
-## mini
+## loopMIDI
 
-- loopMIDI
-- Pocket MIDI
+『loopMIDI』を使い 仮想 MIDI port を作っておきます(名前：loopMIDI Port)
 
-```ruby
+![alt text](./loopMIDI.png)
 
-note, velocity = sync "/midi:loopmidi_port_0:1/note_on"
-note, velocity = sync "/midi:loopmidi_port_0:1/note_off"
+## Pocket MIDI
+『Pocket MIDI』のOutputPortを『loopMIDI Port』とします。
+![alt text](./PocketMIDI_output.png)
 
-```
+## SonicPI( MIDI Live ) 
 
-```ruby
-# Pocket MIDI 上でキーボードを押したときに鳴る。
-# キーを押し続けても鳴り続きはしない。
-use_synth :tb303
-live_loop :midi01 do
-  note, velocity = sync "/midi:loopmidi_port_0:1/note_on"
-  play note, amp: velocity/127.0
-end
-```
+キーボードを押したときの`note`(C3～F3)にそれぞれLiveLoopを対応づけます。
+キーを押すと LiveLoopが動きだしたり 止まったりすることで、対応する音楽が鳴り始めたり消えたりします。
 
-
-## sync
-
-```ruby
-live_loop :metro do
-  cue :ticker
-  sleep 0.25
-end
-
-
-use_synth :tb303
-live_loop :loop1 do
-  sync:ticker
-  play choose(chord(:E3, :minor)), release: 0.3, cutoff: rrand(60, 120)
-end
-```
-
-
-## MIDI + sync
-
+#### SonicPI Code
+『SonicPI』側のコードは次のとおりです。
 ```ruby
 use_debug false
-use_bpm 180
-
-ON_LOOP01 = 60
-ON_LOOP02 = 62
-set :ACTIVE01,0
-set :ACTIVE02,0
-
-live_loop :midi01 do
-  note, velocity = sync "/midi:loopmidi_port_0:1/note_on"
-  case note
-  when ON_LOOP01 then
-    if get[:ACTIVE01]==0 then
-      set :ACTIVE01, 1
-      cue :SYNC01
-    else
-      set :ACTIVE01, 0
-    end
-  when ON_LOOP02 then
-    if get[:ACTIVE02]==0 then
-      set :ACTIVE02, 1
-      cue :SYNC02
-    else
-      set :ACTIVE02, 0
-    end
-  end
-end
-
-live_loop :metro do
-  cue :TICK
-  sample :tabla_dhec
-  sleep 1
-end
-
-
-in_thread do
-  loop do
-    sync :SYNC01
-    live_loop :LOOP01 do
-      sync :TICK
-      sample :bass_hit_c
-      sleep 0.25
-      sample :bass_hit_c
-      sleep 0.25
-      sleep 0.5
-      stop if get[:ACTIVE01] == 0
-    end
-  end
-end
-
-in_thread do
-  loop do
-    sync :SYNC02
-    live_loop :LOOP02 do
-      sync :TICK
-      sample :sn_dolf
-      sleep 0.5
-      sample :sn_dolf
-      sleep 0.5
-      stop if get[:ACTIVE02] == 0
-    end
-  end
-end
-```
-
-```ruby
-use_debug false
-set :bpm, 120
-use_bpm get[:bpm]
 MIDI_NOTE_ON = "/midi:loopmidi_port_0:1/note_on"
 MIDI_PROGRAM_CHANGE = "/midi:loopmidi_port_0:1/program_change"
 ON_LOOP01 = 60 # C3
@@ -120,13 +27,11 @@ ON_LOOP03 = 64 # E3
 ON_LOOP04 = 65 # F3
 ACTIVE = 1
 NOT_ACTIVE = 0
-
 # グローバルタイムストアに ACTIVEnn を設定する(初期値:0)
 4.times do |number|
   activeName = sprintf("ACTIVE%02d", number+1);
   set activeName, NOT_ACTIVE
 end
-
 # live_loopの制御用（実行と停止）
 define :loopCtl do | loopNo |
   activeName = "ACTIVE#{loopNo}"
@@ -143,7 +48,6 @@ define :loopCtl do | loopNo |
     set activeName, NOT_ACTIVE
   end
 end
-
 live_loop :midi01 do
   # MIDI SYNC するまで待つ
   note, velocity = sync_bpm MIDI_NOTE_ON
@@ -158,27 +62,13 @@ live_loop :midi01 do
     loopCtl("04")
   end
 end
-
 live_loop :midi02 do
-  # MIDI program_changeを GET する
+  # MIDI GET する
   program,_ = get MIDI_PROGRAM_CHANGE
-  case program
-  when 1 then
-    set :bpm, 140
-  when 2 then
-    set :bpm, 160
-  when 3 then
-    set :bpm, 180
-  when 4 then
-    set :bpm, 200
-  when 5 then
-    set :bpm, 220
-  else
-    set :bpm, 120
-  end
-  sleep 0.5
+  bpm = 100 + 20 * program
+  set :bpm, bpm
+  sleep 0.5 # 適時待つ
 end
-
 # Metronome loop
 live_loop :metro do
   use_bpm get[:bpm]
@@ -188,10 +78,9 @@ live_loop :metro do
   sleep 1
   sample :drum_cymbal_closed, amp: 0.5
   sleep 1
-  sample :drum_cymbal_closed, amp: 0.5
+  sample :drum_cymbal_open, amp: 0.2
   sleep 1
 end
-
 # スレッドを起動
 in_thread do
   # ループが始まる
@@ -205,7 +94,6 @@ in_thread do
     end
   end
 end
-
 # スレッドを起動
 in_thread do
   # ループが始まる
@@ -224,7 +112,6 @@ in_thread do
     end
   end
 end
-
 # スレッドを起動
 in_thread do
   # ループが始まる
@@ -244,7 +131,6 @@ in_thread do
     end
   end
 end
-
 # スレッドを起動
 in_thread do
   # ループが始まる
