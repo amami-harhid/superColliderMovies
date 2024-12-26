@@ -1,23 +1,3 @@
-# sonicPiをMIDIで制御する
-
-## loopMIDI
-
-『loopMIDI』を使い 仮想 MIDI port を作っておきます(名前：loopMIDI Port)
-
-![alt text](./loopMIDI.png)
-
-## Pocket MIDI
-『Pocket MIDI』のOutputPortを『loopMIDI Port』とします。
-![alt text](./PocketMIDI_output.png)
-
-## SonicPI( MIDI Live ) 
-
-キーボードを押したときの`note`(C3～F3)にそれぞれLiveLoopを対応づけます。
-キーを押すと LiveLoopが動きだしたり 止まったりすることで、対応する音楽が鳴り始めたり消えたりします。
-
-#### SonicPI Code
-『SonicPI』側のコードは次のとおりです。
-```ruby
 use_debug false
 MIDI_NOTE_ON = "/midi:loopmidi_port_0:1/note_on"
 MIDI_PROGRAM_CHANGE = "/midi:loopmidi_port_0:1/program_change"
@@ -37,11 +17,9 @@ define :loopCtl do | loopNo |
   activeName = "ACTIVE#{loopNo}"
   cueName = "SYNC#{loopNo}"
   active = get[activeName]
-  puts "ACTIVE ---> #{active}"
   if get[activeName] == NOT_ACTIVE then
     # live_loop を Stopさせない設定
     set activeName, ACTIVE
-    puts "cue ---> #{cueName}"
     cue cueName # live_loopを開始する cue
   else
     # live_loop内で Stopする設定
@@ -146,4 +124,3 @@ in_thread do
     end
   end
 end
-```
