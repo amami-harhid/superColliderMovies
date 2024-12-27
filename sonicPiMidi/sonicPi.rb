@@ -43,6 +43,7 @@ end
 live_loop :midi02 do
   # MIDI GET する
   program,_ = get MIDI_PROGRAM_CHANGE
+  program = (program == nil)? 3 : program
   bpm = 100 + 20 * program
   set :bpm, bpm
   sleep 0.5 # 適時待つ
