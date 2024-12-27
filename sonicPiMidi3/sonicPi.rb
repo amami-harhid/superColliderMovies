@@ -2,6 +2,7 @@ use_debug false
 set :bpm, 180
 use_bpm get[:bpm]
 MIDI_NOTE_ON = "/midi:loopmidi_port_0:1/note_on"
+MIDI_PROGRAM_CHANGE = "/midi:loopmidi_port_0:1/program_change"
 MIDI_NOTE_ON2 = "/midi:loopmidi_port_0:2/note_on"
 MIDI_NOTE_OFF2 = "/midi:loopmidi_port_0:2/note_off"
 ON_LOOP01 = 60 # C3
@@ -167,21 +168,40 @@ end
 #-----------------------------------------
 # 【チャンネル2: キーボードで音を鳴らす制御】
 #-----------------------------------------
-# 
+#
 # ※ set_audio_latency!
 # MIDIコントローラー側のキーボードをたたいてから 音が始まるタイミングが遅れるときに
 # set_audio_latency!　を試すとよいことがあるかもしれない。
 # マイナス値の場合Audioイベントの開始は 150ms早くなる。
 # 早くしすぎても限界があるはずなので、うまくいけばラッキーと思う程度にしてほしい。
+# 同じ環境であっても -150で良い感じのことがあれば -700 で良い感じのときもある。
+# そのときのマシンのご機嫌によるのかもしれない。
+# ちなみにここまでの件は Windows11(64bit)での話です。
 # REF: https://sunderb.me/sonic-pi-docs-test/ja/reference/lang/set_audio_latency!.html
-set_audio_latency! -150
+set_audio_latency! -700
 
 AMP = 0.2
-live_loop :midi_on do
-  note, _ = sync_bpm MIDI_NOTE_ON2
-  with_fx :wobble, phase: 1, phase_slide: 10 do |e|
-    use_synth :fm
-    play note, release: 1, amp:AMP
-    control e, phase: 0.025
+sHash = []
+live_loop :midi02_on do
+  note, velocity = sync MIDI_NOTE_ON2
+  s = sHash[note]
+  if s != nil then
+    sHash[note] = nil
+    kill s if s != nil
+  end
+  use_synth :fm
+  s = play note, release: 2, amp:AMP # 演奏
+  sHash[note] = s
+end
+
+# キーボードのNoteを押したまますばやく移動すると、押す（離す）が短時間で繰り返される。
+#
+live_loop :midi02_off do
+  note, _ = sync MIDI_NOTE_OFF2
+  s = sHash[note]
+  if s != nil then
+    sHash[note] = nil
+    sleep 0.2
+    kill s if s != nil
   end
 end
