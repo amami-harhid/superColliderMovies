@@ -1,4 +1,3 @@
-# SonicPi.rb
 use_debug false
 MIDI_NOTE_ON = "/midi:loopmidi_port_0:1/note_on"
 MIDI_PROGRAM_CHANGE = "/midi:loopmidi_port_0:1/program_change"
